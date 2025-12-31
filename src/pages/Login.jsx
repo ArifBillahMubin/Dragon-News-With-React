@@ -20,7 +20,7 @@ const Login = () => {
         // console.log({ password, email });
         login(email, password)
             .then(result => {
-                // console.log(result.user)
+                console.log(result.user)
                 navigate(`${location.state ? location.state : '/'}`)
             })
             .catch(err => setError(err.message));

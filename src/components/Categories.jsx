@@ -1,7 +1,18 @@
 import React, { use } from 'react';
 import { NavLink } from 'react-router';
+import { API_ENDPOINTS } from '../config/api';
 
-const categoryPromise = fetch('/categories.json').then(res=> res.json());
+const categoryPromise = fetch(API_ENDPOINTS.CATEGORIES)
+    .then(res => {
+        if (!res.ok) {
+            throw new Error('Failed to fetch categories');
+        }
+        return res.json();
+    })
+    .catch(error => {
+        console.error('Error loading categories:', error);
+        return [];
+    });
 
 const Categories = () => {
     const allCategories = use(categoryPromise);

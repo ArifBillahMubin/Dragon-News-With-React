@@ -22,6 +22,7 @@ const Navbar = () => {
                     <NavLink to={'/'}>Home</NavLink>
                     <NavLink to={'/about'}>About</NavLink>
                     <NavLink to={'/career'}>Career</NavLink>
+                    {user && <NavLink to={'/editor'} className="text-blue-600 font-semibold">Editor Dashboard</NavLink>}
                 </nav>
             </div>
             <div className='flex items-center gap-5 absolute -top-3 right-0'>
